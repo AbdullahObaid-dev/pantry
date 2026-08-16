@@ -1,46 +1,101 @@
 # Pantry
 
-Recipe search with a precise↔vibe hybrid ranking slider (lexical + ingredient-coverage + semantic signals, fused with RRF).
+> **Pantry is an experimental recipe-search project currently under active development.**
 
-**Source of truth for build status, locked decisions, and what to build next is [`CONTRACT.md`](./CONTRACT.md) — read that first, not this file.** This README only covers how to get the repo running.
+The goal is to build a recipe search engine that combines lexical matching, ingredient coverage, and semantic similarity into a unified ranking system with a precise↔vibe control.
+
+**Status: Early development — Stage 00e of 28**
+
+Nothing here should be considered production-ready yet.
+
+## Development Status
+
+The project is being built incrementally from a written specification. The current foundation includes:
+
+* Next.js frontend
+* NestJS backend
+* PostgreSQL + Prisma
+* pnpm monorepo
+* Google authentication
+* JWT authentication between web and API
+* Initial database schema and migrations
+* Unit tests with Vitest
+* GitHub Actions CI
+
+The actual recipe ingestion, search, ranking, pantry features, and most of the UI are **not built yet**.
+
+See [`CONTRACT.md`](./CONTRACT.md) for the complete project state, locked architectural decisions, and remaining implementation stages.
 
 ## Prerequisites
 
-- Node.js 24.x (see `.nvmrc`) — current Active LTS as of Aug 2026
-- pnpm, via [Corepack](https://nodejs.org/api/corepack.html) (bundled with Node): `corepack enable`, then `corepack install` in this directory to pick up the exact pinned version from `package.json`
+* Node.js 24.x — see `.nvmrc`
+* pnpm 11.20.0 — managed through Corepack
 
 ## Setup
 
 ```bash
+corepack enable
+corepack install
 pnpm install
 ```
 
-## Running
+## Development
+
+Run the web and API together:
 
 ```bash
-pnpm dev            # web (:3000) + api (:4000) together
+pnpm dev
+```
+
+Or run them independently:
+
+```bash
 pnpm --filter @pantry/web run dev
 pnpm --filter @pantry/api run start:dev
 ```
 
-Copy `.env.example` → `.env.local` (web) / `.env` (api) in each app and fill in real values as they become needed — see `CONTRACT.md` §3 for the full checklist. Nothing needs real credentials yet at Stage 00a.
+The development servers run on:
 
-## Other workspace-wide commands
+* Web: `http://localhost:3000`
+* API: `http://localhost:4000`
+
+Environment variables are documented in the respective `.env.example` files. See [`CONTRACT.md`](./CONTRACT.md) §3 for the project-wide environment-variable checklist.
+
+## Checks
 
 ```bash
-pnpm build           # fans out to every package's own build script
-pnpm typecheck        # fans out to every package's own typecheck script
-pnpm lint             # one ESLint pass over the whole repo
-pnpm format           # one Prettier pass over the whole repo
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm format
 ```
 
-## Layout
+These are also the checks currently run by CI.
 
-```
-apps/web/             Next.js (App Router) frontend
-apps/api/              NestJS backend
-packages/shared-types/ DTOs shared between web and api
-scripts/search-eval/   NDCG/MRR search-quality harness (Stage 06d)
+## Repository Structure
+
+```text
+apps/
+├── web/                 # Next.js frontend
+└── api/                 # NestJS backend
+
+packages/
+└── shared-types/        # Types shared between web and API
+
+scripts/
+└── search-eval/         # Search-quality evaluation harness
 ```
 
-Full structure, tech-stack decisions, and what's locked vs. still open live in `CONTRACT.md`.
+## Project Documentation
+
+[`CONTRACT.md`](./CONTRACT.md) is the project's implementation record. It tracks:
+
+* what has been built
+* what is currently being built
+* locked architectural decisions
+* API and data contracts
+* environment requirements
+* remaining development stages
+
+This README is intentionally lightweight; the contract contains the detailed project state.
