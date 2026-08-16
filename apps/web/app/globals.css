@@ -1,0 +1,19 @@
+/* Minimal reset only. Tailwind + the custom theme layer (SRS §12) are not
+   wired up yet — that's deferred to whichever stage first builds real UI
+   (looks like 02b), consistent with "no business logic yet" for Stage 00a. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}

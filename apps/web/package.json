@@ -1,0 +1,29 @@
+{
+  "name": "@pantry/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@pantry/shared-types": "workspace:*",
+    "jose": "^6.2.8",
+    "jsonwebtoken": "^9.0.3",
+    "next": "16.3.0",
+    "next-auth": "^4.24.15",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.0.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "typescript": "6.0.3",
+    "vitest": "^4.1.10"
+  }
+}

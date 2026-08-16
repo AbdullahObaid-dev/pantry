@@ -1,0 +1,36 @@
+# dependencies
+node_modules
+.pnpm-store
+
+# build output
+dist
+build
+out
+.next/
+.vercel
+apps/api/generated/
+
+# testing / coverage (test runner TBD — see CONTRACT.md §10 session log)
+coverage
+
+# env files — never commit real secrets, .env.example is the tracked template
+.env
+.env.local
+.env.*.local
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# editor / OS
+.DS_Store
+*.pem
+.vscode/*
+!.vscode/extensions.json
+.idea

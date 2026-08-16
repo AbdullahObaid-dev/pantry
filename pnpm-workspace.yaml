@@ -1,0 +1,18 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'scripts/*'
+
+# create-next-app disables install scripts for these by default (neither is
+# needed for local dev/build in this project); kept here since it's a
+# workspace-root-only setting in modern pnpm, not something apps/web can set itself.
+allowBuilds:
+  '@prisma/engines': false
+  esbuild: true
+  prisma: false
+  sharp: false
+  unrs-resolver: false
+
+minimumReleaseAgeExclude:
+  - eslint@10.8.1
+  - tsx@4.23.11
