@@ -1,3 +1,4 @@
+````md
 # Pantry
 
 > **Pantry is an experimental recipe-search project currently under active development.**
@@ -12,24 +13,22 @@ Nothing here should be considered production-ready yet.
 
 The project is being built incrementally from a written specification. The current foundation includes:
 
-* Next.js frontend
-* NestJS backend
-* PostgreSQL + Prisma
-* pnpm monorepo
-* Google authentication
-* JWT authentication between web and API
-* Initial database schema and migrations
-* Unit tests with Vitest
-* GitHub Actions CI
+- Next.js frontend
+- NestJS backend
+- PostgreSQL + Prisma
+- pnpm monorepo
+- Google authentication
+- JWT authentication between web and API
+- Initial database schema and migrations
+- Unit tests with Vitest
+- GitHub Actions CI
 
 The actual recipe ingestion, search, ranking, pantry features, and most of the UI are **not built yet**.
 
-See [`CONTRACT.md`](./CONTRACT.md) for the complete project state, locked architectural decisions, and remaining implementation stages.
-
 ## Prerequisites
 
-* Node.js 24.x — see `.nvmrc`
-* pnpm 11.20.0 — managed through Corepack
+- Node.js 24.x — see `.nvmrc`
+- pnpm 11.20.0 — managed through Corepack
 
 ## Setup
 
@@ -37,7 +36,7 @@ See [`CONTRACT.md`](./CONTRACT.md) for the complete project state, locked archit
 corepack enable
 corepack install
 pnpm install
-```
+````
 
 ## Development
 
@@ -59,7 +58,7 @@ The development servers run on:
 * Web: `http://localhost:3000`
 * API: `http://localhost:4000`
 
-Environment variables are documented in the respective `.env.example` files. See [`CONTRACT.md`](./CONTRACT.md) §3 for the project-wide environment-variable checklist.
+Environment variables are documented in the respective `.env.example` files.
 
 ## Checks
 
@@ -87,15 +86,9 @@ scripts/
 └── search-eval/         # Search-quality evaluation harness
 ```
 
-## Project Documentation
+## Development
 
-[`CONTRACT.md`](./CONTRACT.md) is the project's implementation record. It tracks:
+Pantry is currently in its early implementation stages. Features will be added incrementally as development progresses.
 
-* what has been built
-* what is currently being built
-* locked architectural decisions
-* API and data contracts
-* environment requirements
-* remaining development stages
-
-This README is intentionally lightweight; the contract contains the detailed project state.
+```
+```
